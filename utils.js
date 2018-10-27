@@ -1,6 +1,8 @@
 // utils
 
 const _ = require('lodash')
+const power = 10;
+// lower - more random, higher - less random
 
 const wordsMapContainsWord = (word, wordsMap) => 
     wordsMap.forEach(subList => 
@@ -44,14 +46,14 @@ const addWordOrIncreaseCount = (previous, word, wordsMap) => {
         if (_.isArray(subList)) {
             _.each(subList, item => {
                 if (_.get(item, 'word') == word) {
-                    item.count++;
+                    item.count += power;
                     found = true;
                 }
             })
         }
         else {
             if (_.get(subList, 'word') == word) {
-                subList.count++;
+                subList.count += power;
                 found = true;
             }
         }
@@ -59,10 +61,14 @@ const addWordOrIncreaseCount = (previous, word, wordsMap) => {
     });
 
     if (!found) {
-        newSubList = newSubList.concat({word, count: 1})
+        newSubList = newSubList.concat({word, count: power})
     }
     wordsMap = wordsMap.set(previous, newSubList)
-
+    // add this word everywhere :D with count = 1, power sets relative probability
+    wordsMap = wordsMap
+        .map(value => {
+                return value.concat({word, count: 1})}
+    ) // :DDDDDDDDDDDDDDDDDDD
     return wordsMap;
 }
 
