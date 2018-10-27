@@ -30,8 +30,7 @@ const addToWordsMap = (word, wordsMap) => {
 
 const addToFirstWordsList = (word, firstWords) => {
     // check if it doesn't exist already
-    if (firstWordListContainsWord(word)) {
-
+    if (firstWordListContainsWord(word) >= 0) {
     } else {
         firstWords = firstWords.concat(word);
     }

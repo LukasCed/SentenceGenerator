@@ -5,6 +5,8 @@ const { Map } = require('immutable')
 var wordsMap = Map({});
 var firstWords = []
 
+var sentence = "fryzas gokas fryzas pikolas gokas"
+sentenceToWordsMap(sentence);
 
 function sentenceToWordsMap(sentence) {
     // break down sentence
@@ -27,5 +29,5 @@ function sentenceToWordsMap(sentence) {
 }
 
 function generateString(length) {
-        
+
 }
