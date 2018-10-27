@@ -1,0 +1,8 @@
+{
+  "name": "Sentence_Imitator",
+  "version": "1.0.0",
+  "dependencies": {
+    "immutable": "^3.8.2",
+    "lodash": "^4.17.11"
+  }
+}
